@@ -1,4 +1,4 @@
-# min-ags-dev-env 1.0.0
+# min-ags-dev-env 1.1.0
 #
 # Minimal Docker Development Environment for Adventure Game Studio
 #
@@ -18,8 +18,7 @@ RUN powershell -NoLogo -NoProfile -Command \
     cinst -y --no-progress git --params "/GitAndUnixToolsOnPath" ; \
     cinst -y --no-progress 7zip ; \
     cinst -y --no-progress dotnetfx --version=4.7.2.20180712 ; \
-    cinst -y --no-progress --version=16.8.2.0 visualstudio2019buildtools ; \
-    cinst -y --no-progress --version=1.0.0 visualstudio2019-workload-vctools ; \
+    cinst -y --no-progress --version=16.8.3.0 visualstudio2019buildtools ; \
     cinst -y --no-progress --version=14.0.25420.1 visualcpp-build-tools ; \
     cinst -y --no-progress --version=3.19.1 --installargs 'ADD_CMAKE_TO_PATH=System' cmake ; \
     Remove-Item C:\ProgramData\chocolatey\logs\*.* -Force -Recurse ; \
