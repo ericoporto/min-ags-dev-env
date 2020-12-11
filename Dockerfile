@@ -1,4 +1,4 @@
-# min-ags-dev-env
+# min-ags-dev-env 1.0.0
 #
 # Minimal Docker Development Environment for Adventure Game Studio
 #
