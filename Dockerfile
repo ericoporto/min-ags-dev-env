@@ -1,5 +1,5 @@
 # escape=`
-# min-ags-dev-env 2.0.1
+# min-ags-dev-env 2.0.2
 #
 # Minimal Docker Development Environment for Adventure Game Studio
 
@@ -110,6 +110,6 @@ RUN powershell -NoLogo -NoProfile -Command `
     Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) ; `
     choco install -y --no-progress git --params "/GitAndUnixToolsOnPath" ; `
     choco install -y --no-progress 7zip ; `
-    choco install cmake --version=3.26.6 --installargs 'ADD_CMAKE_TO_PATH=System' cmake ; `
+    choco install -y --version=3.26.6 --installargs 'ADD_CMAKE_TO_PATH=System' cmake ; `
     Remove-Item C:\ProgramData\chocolatey\logs\*.* -Force -Recurse ; `
     Remove-Item C:\Users\ContainerAdministrator\AppData\Local\Temp\*.* -Force -Recurse
