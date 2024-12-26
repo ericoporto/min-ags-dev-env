@@ -1,4 +1,4 @@
-ARG FROM_IMAGE=mcr.microsoft.com/dotnet/framework/sdk:4.8.1
+ARG FROM_IMAGE=mcr.microsoft.com/dotnet/framework/runtime:4.8-windowsservercore-ltsc2019
 FROM ${FROM_IMAGE}
 
 LABEL org.opencontainers.image.source = "https://github.com/ericoporto/min-ags-dev-env"
