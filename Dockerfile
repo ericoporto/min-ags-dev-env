@@ -29,12 +29,14 @@ RUN C:/TEMP/Install.cmd C:/TEMP/vs_buildtools.exe --quiet --wait --norestart --n
     --add Microsoft.Net.ComponentGroup.TargetingPacks.Common \
     --add Microsoft.VisualStudio.Component.TestTools.BuildTools \
     --add Microsoft.VisualStudio.Workload.VCTools \
-	--add Microsoft.VisualStudio.Workload.MSBuildTools \
+    --add Microsoft.VisualStudio.Workload.MSBuildTools \
     --add Microsoft.VisualStudio.Component.VC.140 \
     --add Microsoft.VisualStudio.ComponentGroup.VC.Tools.142.x86.x64 \
     --add Microsoft.VisualStudio.Component.VC.ATL \
     --add Microsoft.VisualStudio.Component.VC.CLI.Support \
+    --add Microsoft.VisualStudio.Component.Windows81SDK \
     --add Microsoft.VisualStudio.Component.Windows10SDK.16299.Desktop \
+    --add Microsoft.VisualStudio.Component.Windows10SDK.17763.Desktop \
     --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.WinXP \
     --installPath C:/BuildTools
     
@@ -45,7 +47,7 @@ RUN powershell -NoLogo -NoProfile -Command \
     Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) ; \
     choco install -y --no-progress git --params "/GitAndUnixToolsOnPath" ; \
     choco install -y --no-progress 7zip ; \
-    choco install -y --version=3.26.6 --installargs 'ADD_CMAKE_TO_PATH=System' cmake ; \
+    choco install -y --version=3.30.6 --installargs 'ADD_CMAKE_TO_PATH=System' cmake ; \
     Remove-Item C:/ProgramData/chocolatey/logs/*.* -Force -Recurse ; \
     Remove-Item C:/Users/ContainerAdministrator/AppData/Local/Temp/*.* -Force -Recurse
 	
