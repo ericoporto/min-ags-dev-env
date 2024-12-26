@@ -50,6 +50,4 @@ RUN powershell -NoLogo -NoProfile -Command \
     choco install -y --version=3.30.6 --installargs 'ADD_CMAKE_TO_PATH=System' cmake ; \
     Remove-Item C:/ProgramData/chocolatey/logs/*.* -Force -Recurse ; \
     Remove-Item C:/Users/ContainerAdministrator/AppData/Local/Temp/*.* -Force -Recurse
-	
-ENTRYPOINT C:/BuildTools/Common7/Tools/VsDevCmd.bat &&
-CMD ["powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]
+
