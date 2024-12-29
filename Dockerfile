@@ -16,7 +16,7 @@ RUN powershell -NoProfile -Command \
 	[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; \
 	mkdir c:\temp; \
 	Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_community.exe" -Outfile "C:\TEMP\vs_community.exe"; \
-	C:\TEMP\vs_community.exe --includeRecommended --includeOptional --quiet --nocache \
+	C:\TEMP\vs_community.exe --includeRecommended --quiet --nocache \
 	--add Microsoft.VisualStudio.Workload.NativeDesktop \
     --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools \
     --add Microsoft.Net.ComponentGroup.4.8.1.DeveloperTools \
