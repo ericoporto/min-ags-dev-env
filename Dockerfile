@@ -11,27 +11,27 @@ RUN IF exist %TEMP%\nul ( echo %TEMP% ) ELSE ( mkdir %TEMP% )
 
 # Install VS 2022 community
 RUN powershell -NoProfile -Command \
-	Set-ExecutionPolicy Bypass -Scope Process -Force; \
-	$ProgressPreference = 'SilentlyContinue'; \
-	[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; \
-	mkdir c:\temp; \
-	Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_community.exe" -Outfile "C:\TEMP\vs_community.exe"; \
-	C:\TEMP\vs_community.exe --includeRecommended --quiet --nocache \
-	--add Microsoft.VisualStudio.Workload.NativeDesktop \
+    Set-ExecutionPolicy Bypass -Scope Process -Force; \
+    $ProgressPreference = 'SilentlyContinue'; \
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; \
+    mkdir c:\temp; \
+    Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_community.exe" -Outfile "C:\TEMP\vs_community.exe"; \
+    C:\TEMP\vs_community.exe --includeRecommended --quiet --nocache \
     --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools \
     --add Microsoft.Net.ComponentGroup.4.8.1.DeveloperTools \
+    --add Microsoft.Net.Component.4.8.1.SDK \
     --add Microsoft.VisualStudio.Component.TestTools.BuildTools \
     --add Microsoft.VisualStudio.Workload.VCTools \
     --add Microsoft.VisualStudio.Workload.MSBuildTools \
     --add Microsoft.VisualStudio.ComponentGroup.VC.Tools.142.x86.x64 \
     --add Microsoft.VisualStudio.Component.VC.CLI.Support \
     --add Microsoft.VisualStudio.Component.Windows10SDK.16299.Desktop \
-	--norestart --wait; \
+    --norestart --wait; \
     & IF "%ERRORLEVEL%"=="3010" dir \
-	& rd /s /q c:\temp \
-	&& rd /s /q C:\Users\ContainerAdministrator\AppData\Local\Temp \
-	&& mkdir C:\Users\ContainerAdministrator\AppData\Local\Temp \
-	&& del c:\temp\vs_community.exe
+    & rd /s /q c:\temp \
+    && rd /s /q C:\Users\ContainerAdministrator\AppData\Local\Temp \
+    && mkdir C:\Users\ContainerAdministrator\AppData\Local\Temp \
+    && del c:\temp\vs_community.exe
     
 RUN powershell -NoLogo -NoProfile -Command \
     netsh interface ipv4 show interfaces ; \
