@@ -17,15 +17,18 @@ RUN powershell -NoProfile -Command \
     mkdir c:\temp; \
     Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_community.exe" -Outfile "C:\TEMP\vs_community.exe"; \
     C:\TEMP\vs_community.exe --includeRecommended --quiet --nocache \
+    --add Microsoft.VisualStudio.Workload.NativeDesktop \
     --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools \
     --add Microsoft.Net.ComponentGroup.4.8.1.DeveloperTools \
-    --add Microsoft.Net.Component.4.8.1.SDK \
     --add Microsoft.VisualStudio.Component.TestTools.BuildTools \
     --add Microsoft.VisualStudio.Workload.VCTools \
     --add Microsoft.VisualStudio.Workload.MSBuildTools \
     --add Microsoft.VisualStudio.ComponentGroup.VC.Tools.142.x86.x64 \
     --add Microsoft.VisualStudio.Component.VC.CLI.Support \
     --add Microsoft.VisualStudio.Component.Windows10SDK.16299.Desktop \
+    --add Microsoft.Net.Component.4.8.1.SDK \
+    --add Microsoft.Net.Component.4.8.SDK \
+    --remove Component.VisualStudio.GitHub.Copilot \
     --norestart --wait; \
     & IF "%ERRORLEVEL%"=="3010" dir \
     & rd /s /q c:\temp \
